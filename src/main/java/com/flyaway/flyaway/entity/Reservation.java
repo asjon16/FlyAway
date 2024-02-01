@@ -1,10 +1,7 @@
 package com.flyaway.flyaway.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -12,8 +9,7 @@ import java.time.LocalDateTime;
 @Table(name="reservations")
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 public class Reservation {
 
     @Id

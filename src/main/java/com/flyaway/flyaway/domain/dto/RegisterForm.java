@@ -12,11 +12,11 @@ public class RegisterForm {
     private String password;
     @NotEmpty
     @Size(max = 30,message = "Maximum size of firstname is 30")
-    private String firstname;
+    private String name;
     @NotNull
     @Size(max = 30,message = "Maximum size of lastname is 30")
     private String lastname;
-    private String role;
+
     public String getEmail() {
         return email;
     }
@@ -29,14 +29,6 @@ public class RegisterForm {
     public void setPassword(String password) {
         this.password = password;
     }
-    public String getRole() {
-        return role;
-    }
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-
 
     public Integer getId() {
         return id;
@@ -44,11 +36,11 @@ public class RegisterForm {
     public void setId(Integer id) {
         this.id = id;
     }
-    public String getFirstname() {
-        return firstname;
+    public String getName() {
+        return name;
     }
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setName(String name) {
+        this.name = name;
     }
     public String getLastname() {
         return lastname;
