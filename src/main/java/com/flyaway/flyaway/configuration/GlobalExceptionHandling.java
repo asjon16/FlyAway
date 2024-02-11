@@ -1,6 +1,7 @@
 package com.flyaway.flyaway.configuration;
 
 import com.flyaway.flyaway.domain.exception.AccessDeniedException;
+import com.flyaway.flyaway.domain.exception.DuplicateEntityException;
 import com.flyaway.flyaway.domain.exception.GenericExceptionResponse;
 import com.flyaway.flyaway.domain.exception.ResourceNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,6 +22,12 @@ public class GlobalExceptionHandling {
   }
   @ExceptionHandler
   public ResponseEntity<GenericExceptionResponse> handleGenericException (AccessDeniedException exp, HttpServletRequest req){
+    var response = new GenericExceptionResponse(HttpStatus.BAD_REQUEST.value(),req.getRequestURI(), exp.getMessage());
+    return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
+  }
+
+  @ExceptionHandler
+  public ResponseEntity<GenericExceptionResponse> handleGenericException (DuplicateEntityException exp, HttpServletRequest req){
     var response = new GenericExceptionResponse(HttpStatus.BAD_REQUEST.value(),req.getRequestURI(), exp.getMessage());
     return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
   }

@@ -7,8 +7,6 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name="reservations")
-@Getter
-@Setter
 @Data
 public class Reservation {
 
@@ -20,16 +18,13 @@ public class Reservation {
 
 
     @ManyToOne
-    @JoinColumn(name = "routes_id", referencedColumnName = "id")
-    private Route routes;
+    @JoinColumn(name = "flight_id", referencedColumnName = "id")
+    private Flight flight;
+
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
-
-
-
-
 
 
 }

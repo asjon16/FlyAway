@@ -20,7 +20,7 @@ public class ReservationDto {
     private Long id;
     private LocalDateTime reservationTime;
     private Integer price;
-    private String routes;
+    private String flight;
     @NotEmpty
     @Size(max = 30,message = "Maximum size of name is 30")
     private String user;

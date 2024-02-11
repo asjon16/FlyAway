@@ -18,7 +18,7 @@ public class ReservationMapper {
         reservationDto.setReservationTime(reservation.getReservationTime());
         reservationDto.setPrice(reservation.getPrice());
         reservationDto.setUser(reservation.getUser().getName());
-        reservationDto.setRoutes(reservation.getRoutes().toString());
+        reservationDto.setFlight(reservation.getFlight().toString());
         return reservationDto;
     }
 }
