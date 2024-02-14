@@ -17,6 +17,8 @@ public class RoutesDto {
 
     private Long id;
 
+    private String routeName;
+
     @NotEmpty
     @Size(max = 30,message = "Maximum size of name is 30")
     private String fromCountry;

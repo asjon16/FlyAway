@@ -17,6 +17,8 @@ public class Route {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String routeName;
+
     @ManyToOne
     @JoinColumn(name = "from_country_id", referencedColumnName = "id")
     private Country fromCountry;
