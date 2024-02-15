@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -19,6 +20,8 @@ public class FlightDto {
     private Long id;
 
     private Integer capacity;
+
+    private LocalDateTime flightTime;
 
     private List<String> reservations;
 

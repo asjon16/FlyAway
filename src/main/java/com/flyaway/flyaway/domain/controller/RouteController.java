@@ -47,11 +47,11 @@ public class RouteController {
 
     @PostMapping("/addToCountry/{id}")
     public ResponseEntity<RoutesDto>addToCountry(@PathVariable Integer id,@RequestParam Integer countryId){
-        return ResponseEntity.ok(routeService.addToCountry(id,countryService.findByID(countryId.longValue())));
+        return ResponseEntity.ok(routeService.addToCountry(id,countryId));
     }
     @PostMapping("/addFromCountry/{id}")
     public ResponseEntity<RoutesDto>addFromCountry(@PathVariable Integer id,@RequestParam Integer countryId){
-        return ResponseEntity.ok(routeService.addFromCountry(id,countryService.findByID(countryId.longValue())));
+        return ResponseEntity.ok(routeService.addFromCountry(id,countryId));
     }
 
 

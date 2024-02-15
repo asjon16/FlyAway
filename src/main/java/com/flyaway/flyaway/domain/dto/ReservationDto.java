@@ -18,7 +18,7 @@ public class ReservationDto {
 
 
     private Long id;
-    private LocalDateTime reservationTime;
+
     private Integer price;
     private String flight;
     @NotEmpty

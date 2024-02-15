@@ -12,7 +12,7 @@ public interface RouteService {
     RoutesDto createRoute(RoutesDto routesDto);
     List<RoutesDto> findAllRoutes();
     void deleteRoute(Integer Id);
-    RoutesDto addToCountry(Integer Id, Country country);
-    RoutesDto addFromCountry(Integer Id, Country country);
+    RoutesDto addToCountry(Integer Id, Integer countryId);
+    RoutesDto addFromCountry(Integer Id, Integer countryId);
 
 }

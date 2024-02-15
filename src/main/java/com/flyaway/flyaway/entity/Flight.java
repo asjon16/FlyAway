@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -15,6 +16,7 @@ public class Flight {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Integer capacity;
+    private LocalDateTime flightTime;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Reservation> reservations;

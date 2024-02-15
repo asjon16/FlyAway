@@ -8,6 +8,7 @@ import com.flyaway.flyaway.domain.mapper.RouteMapper;
 import com.flyaway.flyaway.entity.Country;
 import com.flyaway.flyaway.entity.Route;
 import com.flyaway.flyaway.repository.RoutesRepository;
+import com.flyaway.flyaway.services.CountryService;
 import com.flyaway.flyaway.services.RouteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,8 @@ import static com.flyaway.flyaway.domain.mapper.RouteMapper.*;
 public class RouteServiceImp implements RouteService {
 
     private final RoutesRepository routesRepository;
+    private final CountryService countryService;
+
     @Override
     public Route findById(Integer Id) {
         return routesRepository.findById(Id.longValue()).orElseThrow(()->new ResourceNotFoundException(String
@@ -53,8 +56,9 @@ public class RouteServiceImp implements RouteService {
     }
 
     @Override
-    public RoutesDto addToCountry(Integer Id, Country country) {
+    public RoutesDto addToCountry(Integer Id, Integer countryId) {
         var route = findById(Id);
+        var country = countryService.findByID(countryId.longValue());
         if (route.getFromCountry()!=null &&route.getFromCountry().equals(country)){
             throw new DuplicateEntityException("From and To country cannot be the same!");
         }else {
@@ -64,8 +68,9 @@ public class RouteServiceImp implements RouteService {
         }
     }
     @Override
-    public RoutesDto addFromCountry(Integer Id, Country country) {
+    public RoutesDto addFromCountry(Integer Id, Integer countryId) {
         var route = findById(Id);
+        var country = countryService.findByID(countryId.longValue());
         if (route.getToCountry()!=null &&route.getToCountry().equals(country)){
             throw new DuplicateEntityException("From and To country cannot be the same!");
         }else {
